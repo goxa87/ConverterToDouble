@@ -5,19 +5,17 @@ using System;
 
 namespace DZ23_PetrovGN
 {
-    /// <summary>
-    /// Пусть класс Program будет выполнять функцию view.
-    /// </summary>
     class Program
-    {
-        
-
+    {       
         static void Main(string[] args)
         {
+            // Класс реализующий IView.
             ConsoleViewer viewer = new ConsoleViewer();
             while (true)
             {
+                // Получение чтроки.
                 viewer.SetNewValue();
+                // Вывод результатов.
                 viewer.GetDoubleRezult();
             }
         }

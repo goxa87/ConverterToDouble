@@ -6,13 +6,18 @@ using System.Text;
 
 namespace DZ23_PetrovGN.Viewer
 {
+    /// <summary>
+    /// реализует пользовательский интерфейс.
+    /// </summary>
     public class ConsoleViewer : IView
     {
         /// <summary>
         /// Презентер.
         /// </summary>
         public Presenter _presenter { get; set; }
-
+        /// <summary>
+        /// Входящее значение.
+        /// </summary>
         string inputValue;
         /// <summary>
         /// Входящее значение.
@@ -30,19 +35,21 @@ namespace DZ23_PetrovGN.Viewer
             }
         }
         /// <summary>
-        /// Результат преобразования ытроки в double.
+        /// Результат преобразования cтроки в double.
         /// </summary>
         public double? OutputValue { get; set; }
 
         /// <summary>
-        /// инициализация нового представления
+        /// Инициализация нового представления.
         /// </summary>
         public ConsoleViewer()
         {
             // Добавляем презентер и заполняем в этом случае объектом консольного вывода(_view).
             _presenter = new Presenter(new ConvertModel(), this);
         }
-
+        /// <summary>
+        /// Команда получения строки от пользователя.
+        /// </summary>
         public void SetNewValue()
         {
             try
@@ -55,11 +62,14 @@ namespace DZ23_PetrovGN.Viewer
                 Console.WriteLine(ex.MyMessage);
             }
         }
-
+        /// <summary>
+        /// Команда вывода результатов в консоль.
+        /// </summary>
         public void GetDoubleRezult()
         {
             if(OutputValue.HasValue==true) Console.WriteLine($"\nРезультат преобразования: {OutputValue}\n");
             else Console.WriteLine($"\nНе удалось выполнить преобразование строки: {InputValue}\n");
+            // Обнуление для следующей итерации.
             OutputValue = null;
         }
     }

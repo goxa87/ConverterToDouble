@@ -6,10 +6,13 @@ using System.Text;
 
 namespace DZ23_PetrovGN.WiddleWare
 {
+    /// <summary>
+    /// Презентер для связи представления и логики.
+    /// </summary>
     public class Presenter
     {
         /// <summary>
-        /// Представление
+        /// Представление.
         /// </summary>
         public IView _view { get; set; }
         // Используем внедрение зависимостей для имплементации логики преобразования строки в double.
@@ -25,7 +28,7 @@ namespace DZ23_PetrovGN.WiddleWare
         }
 
         /// <summary>
-        /// Метод вызова логики ни входящих данных.
+        /// Метод вызова логики для входящих данных.
         /// </summary>
         /// <param name="input">Строка для преобразования.</param>
         public void DoWork(string input)
